@@ -102,7 +102,7 @@
                <children>
                   <VBox minHeight="430.0" prefHeight="430.0" prefWidth="80.0">
                      <children>
-                        <Button fx:id="sqrt_label" mnemonicParsing="false" prefHeight="76.0" prefWidth="81.0" text="√">
+                        <Button fx:id="sqrt_label" mnemonicParsing="false" onAction="#on_sqrt" prefHeight="76.0" prefWidth="81.0" text="√">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>

@@ -3,6 +3,9 @@ package application;
 
 import java.util.Stack;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class calculator {
 	private String result;
 	public calculator(String result) {
@@ -17,7 +20,19 @@ public class calculator {
 	}
 	public static boolean isOperator(String s)
 	{
-	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")");
+	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")") ||s.equals("√");
+	}
+	public void sqrtError() {
+	Alert errorAlert = new Alert(AlertType.ERROR);
+	errorAlert.setHeaderText("Sqrt ERORR ");
+	errorAlert.setContentText("Your number must be greater or equal than 0");
+	errorAlert.showAndWait();
+	}
+	public void divError() {
+	Alert errorAlert = new Alert(AlertType.ERROR);
+	errorAlert.setHeaderText("Divide ERROR");
+	errorAlert.setContentText("You can't divide by zero. Remember that");
+	errorAlert.showAndWait();
 	}
 	public String calculate(String result) {
         result = result.trim();
@@ -35,24 +50,37 @@ public class calculator {
            else
            {
                  double a = values.pop();
-                 double b = values.pop();
+           //      double b = values.pop();
+                 double b ;
                  switch(token)
                 	  {
                       case "+":
+                    	  b=values.pop();
                           answer = a + b;
+                         
                           break;
                       case "-":
+                    	  b=values.pop();
                           answer = b - a;
                           break;
                       case "*":
+                    	  b=values.pop();
                           answer = a * b;
                           break;
                       case "/":{
+                    	  b=values.pop();
                     	  if(a!=0)
                     		  answer = b / a;
                     	  else
-                    		  return "ERR";
-                          break;   
+                    		  divError();
+                          break;
+                      }
+                      case "√":{
+                    	  if (a>=0)
+                    		  answer = Math.sqrt(a);
+                    	  else 
+                    		  sqrtError();
+                    	  break;
                       }
                 }
                 values.add(answer); 
@@ -63,8 +91,6 @@ public class calculator {
 }
 	public  String rpnChange(String result) {
 		result = result.trim();
-	//	if (result.charAt(result.length() -1)== ')')
-	//		result += " ";
 		String[] tokens = result.split(" ");
 		Stack<String> stack= new Stack<String>();
 		String exit="";
@@ -86,9 +112,13 @@ public class calculator {
                 	 }
                 	 break;
                  }
+                 case "√": {
+                	stack.add("√");		
+                	break;
+                 }
                  case "*":{
                 	 String x = " ";
-                	 while (stack.search("/")!=-1) {
+                	 while (stack.search("/")!=-1 || stack.search("√")!=-1) {
                 		 x=stack.pop();
                 		 if(x!="(")
                 			 exit+=x + " ";
@@ -98,7 +128,7 @@ public class calculator {
                  }
                  case "/":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1) {
+                	 while (stack.search("*")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();	
                 		 if(x!="(")
                 			 exit+=x + " ";
@@ -108,7 +138,7 @@ public class calculator {
                  }
                  case "+":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1 || stack.search("-")!=-1 || stack.search("/")!=-1) {
+                	 while (stack.search("*")!=-1 || stack.search("-")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();
                 		 if(x!="(")
                 			 exit+=x + " ";
@@ -118,7 +148,7 @@ public class calculator {
                  }
                  case "-":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1 || stack.search("+")!=-1 || stack.search("/")!=-1) {
+                	 while (stack.search("*")!=-1 || stack.search("+")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();
                 		 if(x!="(")
                 			 exit+=x + " ";

@@ -46,117 +46,122 @@ public class ControllerMain {
 	calculator Calc = new calculator("");
 	@FXML
 	private void on_C(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult("");
 	    result_label.setText(Calc.getResult());
 	}
 	@FXML
 	private void on_plus(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 		Calc.setResult(Calc.getResult()+" + ");
 	    result_label.setText(Calc.getResult());
 	}
 	@FXML
 	private void on_sub(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+" - ");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_div(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+" / ");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_mul(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+" * ");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
+	private void on_sqrt(ActionEvent event) {
+	    Calc.setResult(Calc.getResult()+" âˆš ");
+	    result_label.setText(Calc.getResult());
+	}
+	@FXML
 	private void on_0(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"0");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_1(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"1");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_2(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"2");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_3(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"3");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_4(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"4");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_5(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"5");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_6(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"6");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_7(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"7");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_8(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"8");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_9(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+"9");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_close(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+" ) ");
 	    result_label.setText(Calc.getResult());
 	    
 	}
 	@FXML
 	private void on_open(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.getResult()+" ( ");
 	    result_label.setText(Calc.getResult());
 	    
@@ -168,7 +173,7 @@ public class ControllerMain {
 	}
 	@FXML
 	private void on_equal(ActionEvent event) {
-	    // Button was clicked, do something…
+	    // Button was clicked, do somethingâ€¦
 	    Calc.setResult(Calc.calculate(Calc.rpnChange(Calc.getResult())));
 	    result_label.setText(Calc.getResult());
 	    
