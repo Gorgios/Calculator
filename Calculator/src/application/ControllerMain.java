@@ -81,6 +81,7 @@ public class ControllerMain {
 	@FXML
 	private void on_div(ActionEvent event) {
 	    // Button was clicked, do something…
+		Calc.checkString();
 	    Calc.setResult(Calc.getResult()+" / ");
 	    result_label.setText(Calc.getResult());
 	    
@@ -94,7 +95,7 @@ public class ControllerMain {
 	}
 	@FXML
 	private void on_sqrt(ActionEvent event) {
-	    Calc.setResult(Calc.getResult()+" √ ");
+	    Calc.setResult(Calc.getResult()+" \u221a ");
 	    result_label.setText(Calc.getResult());
 	}
 	@FXML
@@ -111,7 +112,7 @@ public class ControllerMain {
 	}
 	@FXML
 	private void on_power(ActionEvent event) {
-	    Calc.setResult(Calc.getResult()+" ² ");
+	    Calc.setResult(Calc.getResult()+" \u00B2 ");
 	    result_label.setText(Calc.getResult());
 	}
 	@FXML

@@ -18,9 +18,10 @@ public class calculator {
 	public void setResult(String result) {
 		this.result = result;
 	}
+	
 	public static boolean isOperator(String s)
 	{
-	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")") ||s.equals("√")||s.equals("²");
+	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")") ||s.equals("\u221a")||s.equals("\u00B2");
 	}
 	public void sqrtError() {
 	Alert errorAlert = new Alert(AlertType.ERROR);
@@ -75,14 +76,14 @@ public class calculator {
                     		  divError();
                           break;
                       }
-                      case "√":{
+                      case "\u221a":{
                     	  if (a>=0)
                     		  answer = Math.sqrt(a);
                     	  else 
                     		  sqrtError();
                     	  break;
                       }
-                      case "²":
+                      case "\u00B2":
                     		  answer = a* a;
                     	  break;
                 }
@@ -114,27 +115,27 @@ public class calculator {
                 	 }
                 	 break;
                  }
-                 case "²":{
+                 case "\u00B2":{
                 	String x = " ";
-                 	while (stack.search("√")!=-1) {
+                 	while (stack.search("\u221a")!=-1) {
                  		 x=stack.pop();
                  		 exit+=x + " ";
                  	}
-                 	stack.add("²");	
+                 	stack.add("\u00B2");	
                  	break;
                  }
-                 case "√": {
+                 case "\u221a": {
                 	String x = " ";
-                	while (stack.search("²")!=-1) {
+                	while (stack.search("\u00B2")!=-1) {
                 		 x=stack.pop();
                 		 exit+=x + " ";
                 	}
-                	stack.add("√");		
+                	stack.add("\u221a");		
                 	break;
                  }
                  case "*":{
                 	 String x = " ";
-                	 while (stack.search("/")!=-1 || stack.search("√")!=-1) {
+                	 while (stack.search("/")!=-1 || stack.search("\u221a")!=-1 || stack.search("\u00B2")!=-1) {
                 		 x=stack.pop();
                 		 exit+=x + " ";
                 	 }
@@ -143,7 +144,7 @@ public class calculator {
                  }
                  case "/":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1  || stack.search("√")!=-1) {
+                	 while (stack.search("*")!=-1  || stack.search("\u221a")!=-1 || stack.search("\u00B2")!=-1) {
                 		 x=stack.pop();	
                 		 exit+=x + " ";
                 	 }
@@ -152,7 +153,7 @@ public class calculator {
                  }
                  case "+":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1 || stack.search("-")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
+                	 while (stack.search("*")!=-1 || stack.search("-")!=-1 || stack.search("/")!=-1  || stack.search("\u221a")!=-1 || stack.search("\u00B2")!=-1) {
                 		 x=stack.pop();
                 		 exit+=x + " ";
                 	 }
@@ -161,7 +162,7 @@ public class calculator {
                  }
                  case "-":{
                 	 String x = " ";
-                	 while (stack.search("*")!=-1 || stack.search("+")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
+                	 while (stack.search("*")!=-1 || stack.search("+")!=-1 || stack.search("/")!=-1  || stack.search("\u221a")!=-1 || stack.search("\u00B2")!=-1) {
                 		 x=stack.pop();
                 		 exit+=x + " ";
                 	 }
