@@ -20,7 +20,7 @@ public class calculator {
 	}
 	public static boolean isOperator(String s)
 	{
-	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")") ||s.equals("√");
+	     return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/") || s.equals("(") || s.equals(")") ||s.equals("√")||s.equals("²");
 	}
 	public void sqrtError() {
 	Alert errorAlert = new Alert(AlertType.ERROR);
@@ -82,6 +82,9 @@ public class calculator {
                     		  sqrtError();
                     	  break;
                       }
+                      case "²":
+                    		  answer = a* a;
+                    	  break;
                 }
                 values.add(answer); 
             }
@@ -94,7 +97,6 @@ public class calculator {
 		String[] tokens = result.split(" ");
 		Stack<String> stack= new Stack<String>();
 		String exit="";
-		String w;
 		for (String token: tokens) {
 			if(!isOperator(token))
 				exit+=token + " ";
@@ -112,7 +114,21 @@ public class calculator {
                 	 }
                 	 break;
                  }
+                 case "²":{
+                	String x = " ";
+                 	while (stack.search("√")!=-1) {
+                 		 x=stack.pop();
+                 		 exit+=x + " ";
+                 	}
+                 	stack.add("²");	
+                 	break;
+                 }
                  case "√": {
+                	String x = " ";
+                	while (stack.search("²")!=-1) {
+                		 x=stack.pop();
+                		 exit+=x + " ";
+                	}
                 	stack.add("√");		
                 	break;
                  }
@@ -120,8 +136,7 @@ public class calculator {
                 	 String x = " ";
                 	 while (stack.search("/")!=-1 || stack.search("√")!=-1) {
                 		 x=stack.pop();
-                		 if(x!="(")
-                			 exit+=x + " ";
+                		 exit+=x + " ";
                 	 }
                 	stack.add("*");		
                 	break;
@@ -130,8 +145,7 @@ public class calculator {
                 	 String x = " ";
                 	 while (stack.search("*")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();	
-                		 if(x!="(")
-                			 exit+=x + " ";
+                		 exit+=x + " ";
                 	 }
                 	 stack.add("/");
                 	break;		 
@@ -140,8 +154,7 @@ public class calculator {
                 	 String x = " ";
                 	 while (stack.search("*")!=-1 || stack.search("-")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();
-                		 if(x!="(")
-                			 exit+=x + " ";
+                		 exit+=x + " ";
                 	 }
                 	 stack.add("+");
                 	break;		 
@@ -150,8 +163,7 @@ public class calculator {
                 	 String x = " ";
                 	 while (stack.search("*")!=-1 || stack.search("+")!=-1 || stack.search("/")!=-1  || stack.search("√")!=-1) {
                 		 x=stack.pop();
-                		 if(x!="(")
-                			 exit+=x + " ";
+                		 exit+=x + " ";
                 	 }
                 	 stack.add("-");
                 	 break;

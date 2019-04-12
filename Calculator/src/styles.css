@@ -1,0 +1,22 @@
+.button{
+	-fx-background-color: #94a2b7 ;
+}
+
+.button:hover{
+	-fx-background-color: #bccce5;
+
+}
+.result{
+    -fx-border-color: #94a2b7 ;
+   -fx-border-width: 5 ; 
+   -fx-border-radius: 10;
+   -fx-text-fill:#424f63;
+}
+#closeButton{
+		-fx-background-color: #94a2b7 ;
+		-fx-background-radius:25;
+}
+#closeButton:hover{
+		-fx-background-color: #bccce5;
+		
+}
